@@ -35,35 +35,22 @@ Monitoramento de Ativos:
 
 Resumo Diário: Busca assíncrona dos valores de pico (highest e lowest) do dia anterior para todos os ativos favoritos de um usuário.
 
-Histórico (30 Dias): Busca paralela do histórico de preços de um ativo.
-
 💡 Primeiros Passos
 Pré-requisitos
 Você precisará ter o Python instalado (versão 3.8+ é recomendada) e uma instância do PostgreSQL rodando e acessível.
 
 1. Clonar o Repositório
-Bash
 
-git clone https://www.youtube.com/watch?v=351MZvGXpnY
-cd [NOME DO SEU REPOSITÓRIO]
 2. Instalar Depedencias
-Bash
-
 pip install -r requirements.txt
-(As dependências devem incluir fastapi, uvicorn, sqlalchemy[asyncio], asyncpg, python-jose, passlib, python-dotenv, aiohttp, e alembic.)
 
 3. Crie seu arquivo .env:
 Crie um arquivo chamado .env na raiz do projeto com as seguintes variáveis de ambiente:
 
-Ini, TOML
-
-# Chave Secreta para Assinar o JWT
 SECRET_KEY="SUA_CHAVE_SECRETA_ALEATORIA_E_LONGA"
 ALGORITHM="HS256"
+DATABASE_URL="Url de conexao do seu database, no meu utilizei o postgres"
 
-# URL de Conexão com o PostgreSQL (Exemplo)
-# Se estiver usando Docker/local, ajuste o host/porta.
-DATABASE_URL="postgresql+asyncpg://user:password@host:port/dbname"
 4. Crie e Execute as Migrações do Banco de Dados
 Se você estiver usando Alembic (que é altamente recomendado), siga os passos para criar a tabela user e favorite.
 
@@ -86,3 +73,4 @@ O FastAPI gera automaticamente uma documentação interativa para testar todos o
 
 Swagger UI: Acesse http://127.0.0.1:8000/docs
 
+![Swagger Imagem](imagemm.png)
